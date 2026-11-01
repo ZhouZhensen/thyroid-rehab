@@ -1,0 +1,8 @@
+{
+  "vision_bundle.mjs": "870da5cfc43bfcf2a8b0f14e8152dae8c7e701722e1191b0e592b94b81b4127a",
+  "vision_wasm_internal.js": "85c1a342be70427987f900969a5f26e17557351111364e6585e97fb03e93e108",
+  "vision_wasm_internal.wasm": "bcc13df22d3d69ec8cbe8e280989356d844ae00f4523eb82072d2484f44134dc",
+  "vision_wasm_nosimd_internal.js": "e9b2b799e0f1078f5538b300a57835b823742c37e2646308a03f0f25b39fdcdc",
+  "vision_wasm_nosimd_internal.wasm": "ed5e5e5812490bd90d6a440290845ff9e4c516f696847a28a0c0e0573470d469",
+  "pose_landmarker_lite.task": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a"
+}

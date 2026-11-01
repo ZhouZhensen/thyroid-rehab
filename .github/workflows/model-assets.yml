@@ -1,0 +1,33 @@
+name: Publish verified local model assets
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/prefetch-assets.py
+      - scripts/model-hashes.json
+      - .github/workflows/model-assets.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: model-assets
+  cancel-in-progress: false
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Download and verify pinned public assets
+        run: python scripts/prefetch-assets.py
+      - name: Commit model assets when needed
+        run: |
+          git add vision_bundle.mjs vision_wasm_internal.js vision_wasm_internal.wasm vision_wasm_nosimd_internal.js vision_wasm_nosimd_internal.wasm pose_landmarker_lite.task
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Add hash-verified on-device pose model assets'
+            git push origin HEAD:main
+          fi
+      - name: Request branch-based Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
