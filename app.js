@@ -1,4 +1,4 @@
-import{analyze,cancelAnalysis,aiSummary}from'./vision.js';
+import{analyze,cancelAnalysis,aiSummary,prepareModel}from'./vision.js?v=20261102-fast';
 import{assess,exercises,answerQuestion}from'./rules.js?v=20261102-compact';
 const $=id=>document.getElementById(id);let ready=false,url=null,feedback=null,records=[],screenState='未完成';
 function tab(id){document.querySelectorAll('.page').forEach(p=>p.hidden=p.id!==id);document.querySelectorAll('.nav').forEach(n=>{n.classList.toggle('active',n.dataset.tab===id);if(n.dataset.tab===id)n.setAttribute('aria-current','page');else n.removeAttribute('aria-current');});window.scrollTo({top:0,behavior:'smooth'});}
@@ -30,3 +30,5 @@ window.addEventListener('beforeunload',()=>{if(url)URL.revokeObjectURL(url);});
 $('ai-start').onclick=()=>analyze({allowed:()=>ready&&!$('discomfort').checked,exercise:+$('exercise').value});
 $('ai-cancel').onclick=cancelAnalysis;
 $('ai-consent').onchange=cancelAnalysis;$('ai-baseline').onchange=cancelAnalysis;
+
+$('ai-prepare').onclick=prepareModel;
