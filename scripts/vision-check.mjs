@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import{features,summarize}from'../vision-rules.js';
+const points=()=>{const p=Array.from({length:33},()=>({x:.5,y:.5,visibility:.99}));p[0]={x:.5,y:.15,visibility:.99};p[11]={x:.3,y:.3,visibility:.99};p[12]={x:.7,y:.3,visibility:.99};p[23]={x:.35,y:.7,visibility:.99};p[24]={x:.65,y:.7,visibility:.99};return p;};
+const f=features(points(),640,480);assert(f);assert.equal(f.lean,0);
+const frames=Array.from({length:24},(_,i)=>({time:i/3,people:1,features:{...f}}));
+assert.equal(summarize(frames).status,'review');assert.equal(summarize(frames).events.length,0);
+assert.equal(summarize(frames.map(x=>({...x,features:null}))).status,'refused');
+assert.equal(summarize(frames.map((x,i)=>({...x,people:i===12?2:1}))).status,'refused');
+const crop=points();crop[23].y=1.1;assert.equal(features(crop,640,480),null);
+const invisible=points();invisible[12].visibility=.3;assert.equal(features(invisible,640,480),null);
+const one=frames.map((x,i)=>({...x,features:{...f,lean:i===12?20:0}}));assert.equal(summarize(one).events.length,0);
+const sustained=frames.map((x,i)=>({...x,features:{...f,lean:i>=12?20:0}}));assert(summarize(sustained).events.some(x=>x.kind==='trunk'));
+assert.equal(summarize(frames.slice(0,10)).status,'refused');
+const badref=frames.map(x=>({...x,features:{...f,front:.4}}));assert.equal(summarize(badref).status,'refused');
+console.log('10 landmark quality, refusal, stable-baseline, isolated-noise and sustained-change checks passed. Synthetic tests are not clinical validation.');
