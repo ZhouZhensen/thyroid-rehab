@@ -14,10 +14,16 @@
 
 ## 临床与技术依据
 
-- Huang et al. 2026，甲状腺术后联合康复随机试验：https://pubmed.ncbi.nlm.nih.gov/41778443/ 。支持临床康复背景，不验证本站算法。
+- 中国抗癌协会甲状腺癌专业委员会护理学组，2022，甲状腺癌加速康复外科围术期护理专家共识，DOI:10.12102/j.issn.1009-6493.2022.01.001。支持颈部训练背景，不验证本站算法。
 - CUH 术后颈肩活动患者教育：https://www.cuh.nhs.uk/patient-information/neck-and-shoulder-exercises/ 。一般术后背景，不直接套用其剂量。
 - 技术说明：https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker/web_js 。关键点技术能力不等于临床有效性。
 
 首次使用约下载34MB资源。视频需6～45秒，前2秒正面中立坐位，固定机位并包含头部、双肩及腰部。使用前须获得医护活动许可。无提示不等于动作安全或合格。
 
 第三方许可见 THIRD_PARTY_NOTICES.md 和 MEDIAPIPE-LICENSE.txt。模型资源由 GitHub Actions 从官方固定地址下载，按 scripts/model-hashes.json 校验。站点不含患者数据、账号凭据或原始研究资料。
+
+## 图示与朗读界面
+
+当前仅包含颈肩放松、轻柔低头、左右转头和左右侧屈四个动作。首页大图卡选择、四项动作示意播放、中文点按朗读及重要结果朗读按钮用于辅助理解。示意图不规定临床动作角度；训练量仍需医护确认。朗读使用浏览器 SpeechSynthesis，实际可用性取决于设备中文语音；不支持时显示求助提示。未进行低识字患者临床可用性验证。
+
+AI仅支持后三个动作的肩/躯干辅助回看片段，放松双肩仍可选择视频回看。

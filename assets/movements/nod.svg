@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 210" role="img" aria-label="颈肩动作示意">
+<ellipse cx="120" cy="194" rx="75" ry="7" fill="#d7e9e5"/><rect x="61" y="134" width="118" height="56" rx="16" fill="#dfebe7"/>
+<path d="M66 185v-38q0-26 32-31h44q32 5 32 31v38" fill="#52b8ab" stroke="#216f66" stroke-width="2.5"/>
+<path d="M88 139v45m64-45v45" stroke="#318e82" stroke-width="3" stroke-linecap="round"/>
+<path d="M108 100v21q12 12 24 0v-21" fill="#f3c8a8" stroke="#b88165" stroke-width="2"/>
+<g class="head"><ellipse cx="120" cy="72" rx="30" ry="37" fill="#f8d6bb" stroke="#b88165" stroke-width="2"/>
+<path d="M91 69q-9-40 26-42 37-3 35 43l-10-18q-22 5-37-8l-14 25" fill="#374b4b"/>
+<path d="M107 71h3m20 0h3" stroke="#374b4b" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M119 76v8h5m-12 9q8 5 16 0" fill="none" stroke="#ac7056" stroke-width="2" stroke-linecap="round"/></g>
+<g fill="none" stroke="#167e72" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M172 52q22 23 0 45m-2-12 2 12 12-3"/></g>
+<path d="M69 190h102" stroke="#236e65" stroke-width="3" stroke-linecap="round"/></svg>

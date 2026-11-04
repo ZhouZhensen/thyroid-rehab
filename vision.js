@@ -1,4 +1,4 @@
-import{features,summarize,messages}from'./vision-rules.js?v=20261103-easy';
+import{features,summarize,messages}from'./vision-rules.js?v=20261104-visual';
 const $=id=>document.getElementById(id);let model=null,run=0,report=null,controller=null,lastTimestamp=0;
 const LIMIT_MS=30000;
 function say(t){$('ai-status').textContent=t;}
@@ -39,7 +39,7 @@ function overlay(canvas,points){const c=$('ai-canvas');c.width=canvas.width;c.he
 export async function analyze({allowed,exercise}){
  cancelAnalysis();const id=run,video=$('video');
  if(!allowed()){say('先完成练前确认。有不舒服时不要开始分析。');return;}
- if(![4,5,6].includes(exercise)){say('这个动作请回放自查。AI只支持低头、转头和侧屈。');return;}
+ if(![1,2,3].includes(exercise)){say('这个动作请回放自查。AI只支持低头、转头和侧屈。');return;}
  if(!video.src||!Number.isFinite(video.duration)||video.duration<6||video.duration>45){say('先选6～45秒的视频，开头2秒坐正。不要为拍摄加练。');return;}
  if(!$('ai-consent').checked||!$('ai-baseline').checked){say('请勾选上面的两项确认，再开始。');return;}
  const abort=new AbortController();controller=abort;const started=performance.now();let stage='正在准备分析…';const update=t=>{stage=t;if(id===run)say(stage+' · '+Math.floor((performance.now()-started)/1000)+'秒');};const ticker=setInterval(()=>update(stage),500),timer=setTimeout(()=>abort.abort('超过30秒，已停止，未生成判断。先准备AI，再用6～15秒视频重试。'),LIMIT_MS);controls(true);video.pause();video.controls=false;$('video-status').textContent='视频只在本设备分析，不会上传。';const original=video.currentTime,canvas=document.createElement('canvas');canvas.width=Math.min(480,video.videoWidth);canvas.height=Math.round(canvas.width*video.videoHeight/video.videoWidth);const ctx=canvas.getContext('2d');const frames=[],snapshots=new Map();

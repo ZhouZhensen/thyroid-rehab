@@ -1,131 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#235c86">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#137e73" name="theme-color"/>
 <title>颈心康复 · 安徽医科大学第一附属医院甲状腺外科</title>
-<link rel="icon" type="image/png" href="assets/hospital-logo.png">
-<link rel="apple-touch-icon" href="assets/hospital-logo.png">
-<link rel="stylesheet" href="style.css?v=20261103-easy">
+<link href="assets/hospital-logo.png" rel="icon" type="image/png"/>
+<link href="assets/hospital-logo.png" rel="apple-touch-icon"/>
+<link href="style.css?v=20261104-visual" rel="stylesheet"/>
 </head>
-<body>
-<header>
-<a class="brand" href="#"><img class="brandmark" src="assets/hospital-logo.png" width="400" height="400" alt="安徽医科大学第一附属医院院徽" decoding="async"><span class="brand-copy">颈心康复<small><span class="hospital-name">安徽医科大学<span class="hospital-division">第一附属医院</span></span><span class="department-name">甲状腺外科</span></small></span></a>
-<button class="textbutton danger" id="urgent" type="button" aria-haspopup="dialog">不舒服？</button>
-</header>
+<body><header class="app-header"><a class="brand" data-go="home" href="#"><img alt="医院院徽" height="44" src="assets/hospital-logo.png" width="44"/><span>颈心康复<small>安徽医科大学第一附属医院 · 甲状腺外科</small></span></a><button aria-haspopup="dialog" class="urgent-button" id="urgent" type="button"><span data-icon="alert"></span>不舒服</button></header>
+
 <div class="shell">
-<aside><nav aria-label="主导航">
-<button class="nav active" data-tab="screen" aria-current="page">练前确认</button>
-<button class="nav" data-tab="practice">开始练习</button>
-<button class="nav" data-tab="guide">常见问题</button>
-<button class="nav" data-tab="record">我的记录</button>
-</nav><p class="side-note">先确认，再轻柔练习。<br>次数以医护交代的为准。</p></aside>
-<main>
-<p class="app-note">试用版 · 无医护在线值守</p>
-<section class="page" id="screen">
-<div class="intro"><h1>先确认，再练习</h1><p>每次练习前，回答5个问题。</p></div>
-<form id="screen-form">
-<div id="screen-questions">
-<div class="step-progress"><span id="screen-count" aria-live="polite">第1题，共5题</span><progress id="screen-progress" max="5" value="1" aria-label="练前确认进度">1 / 5</progress></div>
-<fieldset class="screen-step" data-question="emergency" aria-describedby="emergency-hint">
-<legend tabindex="-1">现在有没有紧急情况？</legend>
-<ul class="symptom-list" id="emergency-hint"><li>喘不过气，或吸气有尖锐响声</li><li>脖子突然肿起，或越来越紧</li><li>伤口明显出血</li></ul>
-<div class="answer-options"><label><input type="radio" name="emergency" value="no" required><span>都没有</span></label><label><input type="radio" name="emergency" value="yes"><span>有一项，或说不清</span></label></div>
-</fieldset>
-<fieldset class="screen-step" data-question="review" hidden aria-describedby="review-hint">
-<legend tabindex="-1">有没有新出现或加重的不舒服？</legend>
-<ul class="symptom-list" id="review-hint"><li>喝水呛、声音变哑或带水声、口水不好咽</li><li>嘴周或手指发麻、抽筋</li><li>更疼、头晕、恶心、心慌、很累</li></ul>
-<div class="answer-options"><label><input type="radio" name="review" value="no" required><span>没有</span></label><label><input type="radio" name="review" value="yes"><span>有，或说不清</span></label></div>
-</fieldset>
-<fieldset class="screen-step" data-question="clearance" hidden>
-<legend tabindex="-1">医护让您做这些动作了吗？</legend>
-<div class="answer-options"><label><input type="radio" name="clearance" value="yes" required><span>已允许，也告诉我练多少</span></label><label><input type="radio" name="clearance" value="no"><span>没有，或不清楚</span></label></div>
-</fieldset>
-<fieldset class="screen-step" data-question="special" hidden aria-describedby="special-hint">
-<legend tabindex="-1">有下面这些情况吗？</legend>
-<ul class="symptom-list" id="special-hint"><li>侧颈清扫、特殊入路或重建手术</li><li>原来就有吞咽困难、明显声音异常</li><li>严重颈椎疾病</li></ul>
-<div class="answer-options"><label><input type="radio" name="special" value="no" required><span>没有</span></label><label><input type="radio" name="special" value="reviewed"><span>有，医护已单独同意这些动作</span></label><label><input type="radio" name="special" value="yes"><span>有或不清楚，还没单独问过医护</span></label></div>
-</fieldset>
-<fieldset class="screen-step" data-question="stable" hidden>
-<legend tabindex="-1">能坐稳，并保护好伤口和管子吗？</legend>
-<div class="answer-options"><label><input type="radio" name="stable" value="yes" required><span>能，已按医护要求准备好</span></label><label><input type="radio" name="stable" value="no"><span>不能，或不清楚</span></label></div>
-</fieldset>
-<p id="screen-hint" class="form-hint" role="status" hidden>请先选一个回答。</p>
-<div class="step-actions"><button id="screen-back" type="button" hidden>上一题</button><button class="primary" id="screen-next" type="button">下一题</button><button class="primary" id="screen-submit" type="submit" hidden>完成确认</button></div>
-</div>
-</form>
-<div id="screen-result" class="result" role="status" aria-live="polite" hidden></div>
+<aside><nav aria-label="主导航"><button aria-current="page" class="nav active" data-tab="home" type="button"><span data-icon="home"></span><span>首页</span></button><button class="nav" data-tab="screen" type="button"><span data-icon="shield"></span><span>练前确认</span></button><button class="nav" data-tab="practice" type="button"><span data-icon="exercise"></span><span>学动作</span></button><button class="nav" data-tab="guide" type="button"><span data-icon="help"></span><span>帮助</span></button><button class="nav" data-tab="record" type="button"><span data-icon="record"></span><span>记录</span></button></nav></aside>
+<main><section class="page home-page" id="home">
+<div class="welcome"><div><p class="hospital-label">甲状腺术后 · 颈肩训练</p><h1>慢慢动，轻轻练</h1><p>看得懂，跟着做。</p><button class="voice-button" id="listen-home" type="button"><span data-icon="sound"></span>听怎么用</button></div><img alt="坐稳并放松双肩的动作示意" class="welcome-person" src="assets/movements/relax.svg"/></div>
+<div class="main-actions"><button class="start-card" data-go="screen" type="button"><span class="action-symbol" data-icon="play"></span><span><strong>开始练习</strong><small>先确认，再跟着做</small></span><span data-icon="arrow"></span></button><button class="review-card" id="home-review" type="button"><span class="action-symbol" data-icon="video"></span><span><strong>回看视频</strong><small>看看自己的动作</small></span><span data-icon="arrow"></span></button></div>
+<section aria-labelledby="movement-title" class="home-movements"><div class="section-title"><h2 id="movement-title">今天，学哪个动作？</h2><span>点图片，跟着练</span></div><div class="movement-grid" id="home-exercises"></div></section>
+<div class="home-bottom"><button class="audio-help" id="listen-safety" type="button"><span data-icon="sound"></span><span><strong>练习要记住</strong><small>轻一点 · 慢一点 · 不舒服就停</small></span><span data-icon="arrow"></span></button><div class="help-pair"><button data-go="guide" type="button"><span data-icon="help"></span>我有问题</button><button data-go="record" type="button"><span data-icon="record"></span>我的记录</button></div></div>
+<p class="home-disclaimer">只做医护允许的动作和次数 · 当前无医护在线值守</p>
 </section>
 
-<section class="page" id="practice" hidden>
-<div class="intro"><h1>开始练习</h1><p>只做医护允许的动作和次数。</p></div>
-<div id="locked" class="notice"><p>先完成练前确认，再开始练习。</p><button class="primary" type="button" data-go="screen">去确认</button></div>
-<div id="workspace" hidden>
-<label class="fieldlabel" for="exercise">这次练哪个动作？</label><select id="exercise"></select>
-<article class="exercise-panel">
-<h2 id="exercise-title"></h2><ol id="exercise-how" class="action-steps"></ol>
-<p class="safety-line">轻柔、慢一点。不舒服就停下。</p>
-<details class="quiet-details"><summary>练多少？要注意什么？</summary><p>次数以医护交代的为准，不自行加量。</p><p id="exercise-dose"></p><p id="exercise-source" class="muted"></p><ul><li>不用手扳头，不绕圈，不自行做抗阻训练。</li><li>口面部练习不含水和食物，不边喝水边练。</li></ul></details>
-</article>
-<section class="video-panel" aria-labelledby="video-title">
-<h2 id="video-title">回看我的视频</h2>
-<p class="muted">只在这台设备处理，不会发送到医院。</p>
-<ul id="ai-capture" class="capture-guide" hidden><li>手机固定，1人入镜，拍全头、肩和腰。</li><li>开头2秒坐正。拍6～45秒，建议6～15秒。</li><li>只拍已获准的练习，不为拍摄加练。</li></ul>
-<label class="filebutton">选择或拍摄视频<input id="video-file" type="file" accept="video/*" capture="user"></label>
-<p id="video-status" class="muted" role="status">还没有选择视频</p>
-<video id="video" controls playsinline hidden></video>
-<div class="tools" id="video-tools" hidden><button id="slow" type="button">慢放</button><button id="normal" type="button">正常播放</button><button id="remove-video" type="button">移除视频</button></div>
+<section class="page" hidden="" id="screen">
+<div class="intro"><h1>先确认，再练习</h1><p>每次练习前，回答5个问题。</p><button class="voice-button" id="listen-question" type="button"><span data-icon="sound"></span>听这一题</button></div>
+<form id="screen-form">
+<div id="screen-questions">
+<div class="step-progress"><span aria-live="polite" id="screen-count">第1题，共5题</span><progress aria-label="练前确认进度" id="screen-progress" max="5" value="1">1 / 5</progress></div>
+<fieldset aria-describedby="emergency-hint" class="screen-step" data-question="emergency">
+<legend tabindex="-1">现在有没有紧急情况？</legend><div aria-hidden="true" class="question-symbol" data-icon="alert"></div>
+<ul class="symptom-list" id="emergency-hint"><li>喘不过气，或吸气有尖锐响声</li><li>脖子突然肿起，或越来越紧</li><li>伤口明显出血</li></ul>
+<div class="answer-options"><label><input name="emergency" required="" type="radio" value="no"/><span>都没有</span><span aria-hidden="true" class="answer-symbol" data-icon="check"></span></label><label><input name="emergency" type="radio" value="yes"/><span>有一项，或说不清</span><span aria-hidden="true" class="answer-symbol" data-icon="help"></span></label></div>
+</fieldset>
+<fieldset aria-describedby="review-hint" class="screen-step" data-question="review" hidden="">
+<legend tabindex="-1">有没有新出现或加重的不舒服？</legend><div aria-hidden="true" class="question-symbol" data-icon="heart"></div>
+<ul class="symptom-list" id="review-hint"><li>喝水呛、声音变哑或带水声、口水不好咽</li><li>嘴周或手指发麻、抽筋</li><li>更疼、头晕、恶心、心慌、很累</li></ul>
+<div class="answer-options"><label><input name="review" required="" type="radio" value="no"/><span>没有</span><span aria-hidden="true" class="answer-symbol" data-icon="check"></span></label><label><input name="review" type="radio" value="yes"/><span>有，或说不清</span><span aria-hidden="true" class="answer-symbol" data-icon="help"></span></label></div>
+</fieldset>
+<fieldset class="screen-step" data-question="clearance" hidden="">
+<legend tabindex="-1">医护让您做这些动作了吗？</legend><div aria-hidden="true" class="question-symbol" data-icon="shield"></div>
+<div class="answer-options"><label><input name="clearance" required="" type="radio" value="yes"/><span>已允许，也告诉我练多少</span><span aria-hidden="true" class="answer-symbol" data-icon="check"></span></label><label><input name="clearance" type="radio" value="no"/><span>没有，或不清楚</span><span aria-hidden="true" class="answer-symbol" data-icon="help"></span></label></div>
+</fieldset>
+<fieldset aria-describedby="special-hint" class="screen-step" data-question="special" hidden="">
+<legend tabindex="-1">有下面这些情况吗？</legend><div aria-hidden="true" class="question-symbol" data-icon="help"></div>
+<ul class="symptom-list" id="special-hint"><li>侧颈清扫、特殊入路或重建手术</li><li>原来就有吞咽困难、明显声音异常</li><li>严重颈椎疾病</li></ul>
+<div class="answer-options"><label><input name="special" required="" type="radio" value="no"/><span>没有</span><span aria-hidden="true" class="answer-symbol" data-icon="check"></span></label><label><input name="special" type="radio" value="reviewed"/><span>有，医护已单独同意这些动作</span><span aria-hidden="true" class="answer-symbol" data-icon="check"></span></label><label><input name="special" type="radio" value="yes"/><span>有或不清楚，还没单独问过医护</span><span aria-hidden="true" class="answer-symbol" data-icon="help"></span></label></div>
+</fieldset>
+<fieldset class="screen-step" data-question="stable" hidden="">
+<legend tabindex="-1">能坐稳，并保护好伤口和管子吗？</legend><div aria-hidden="true" class="question-symbol" data-icon="seat"></div>
+<div class="answer-options"><label><input name="stable" required="" type="radio" value="yes"/><span>能，已按医护要求准备好</span><span aria-hidden="true" class="answer-symbol" data-icon="check"></span></label><label><input name="stable" type="radio" value="no"/><span>不能，或不清楚</span><span aria-hidden="true" class="answer-symbol" data-icon="help"></span></label></div>
+</fieldset>
+<p class="form-hint" hidden="" id="screen-hint" role="status">请先选一个回答。</p>
+<div class="step-actions"><button hidden="" id="screen-back" type="button">上一题</button><button class="primary" id="screen-next" type="button">下一题</button><button class="primary" hidden="" id="screen-submit" type="submit">完成确认</button></div>
+</div>
+</form>
+<div aria-live="polite" class="result" hidden="" id="screen-result" role="status"></div>
 </section>
+<section class="page" hidden="" id="practice">
+<div class="intro"><h1>开始练习</h1><p>先看示意，再按医护交代的要求练。</p></div>
+<div class="notice" id="locked"><p>先完成练前确认，再开始练习。</p><button class="primary" data-go="screen" type="button">去确认</button></div>
+<div hidden="" id="workspace"><div aria-label="选择颈肩动作" class="exercise-picker" id="exercise-picker"></div>
+<label class="sr-only" for="exercise">这次练哪个动作？</label><select class="sr-only" id="exercise"></select>
+<article class="exercise-panel"><div class="movement-stage"><div class="stage-text"><span class="stage-label">动作示意</span><h2 id="stage-name">颈肩放松</h2><p id="stage-caption">坐稳，轻轻做</p><button class="voice-button" id="listen-exercise" type="button"><span data-icon="sound"></span>听动作讲解</button></div><div class="patient-scene" id="patient-scene"></div></div><div class="demo-controls"><button class="primary" id="demo-toggle" type="button"><span data-icon="play"></span>播放动作示意</button><span>示意幅度不作训练目标</span></div>
+<h2 class="sr-only" id="exercise-title"></h2><ol class="action-steps" id="exercise-how"></ol>
+<p class="safety-line">轻柔、慢一点。不舒服就停下。</p>
+<details class="quiet-details"><summary>练多少？要注意什么？</summary><p>次数以医护交代的为准，不自行加量。</p><p id="exercise-dose"></p><p class="muted" id="exercise-source"></p><ul><li>不用手扳头，不绕圈，不自行做抗阻训练。</li></ul></details>
+</article>
+<section aria-labelledby="video-title" class="video-panel">
+<h2 id="video-title">看看自己的动作</h2><div class="video-steps"><span><b>1</b>拍视频</span><span><b>2</b>回看动作</span><span><b>3</b>请医护指导</span></div>
+<p class="muted">只在这台设备处理，不会发送到医院。</p>
+<ul class="capture-guide" hidden="" id="ai-capture"><li>手机固定，1人入镜，拍全头、肩和腰。</li><li>开头2秒坐正。拍6～45秒，建议6～15秒。</li><li>只拍已获准的练习，不为拍摄加练。</li></ul>
+<label class="filebutton">选择或拍摄视频 <input accept="video/*" capture="user" id="video-file" type="file"/></label>
+<p class="muted" id="video-status" role="status">还没有选择视频</p>
+<video controls="" hidden="" id="video" playsinline=""></video>
+<div class="tools" hidden="" id="video-tools"><button id="slow" type="button">慢放</button><button id="normal" type="button">正常播放</button><button id="remove-video" type="button">移除视频</button></div>
+</section><div class="ai-entry-banner"><span data-icon="scan"></span><div><strong>AI 帮你找回看片段</strong><p id="ai-entry-state">选好低头、转头或侧屈，再选择视频。</p></div></div>
 <details class="task-details" id="selfcheck-details">
 <summary>自己检查动作</summary>
 <h3>对照这几个要点</h3><ol id="checkpoints"></ol>
 <h3>我看到的问题</h3><div id="issues"></div>
-<label class="check discomfort"><input type="checkbox" id="discomfort">练习时有新出现或加重的不舒服</label>
+<label class="check discomfort"><input id="discomfort" type="checkbox"/>练习时有新出现或加重的不舒服</label>
 <button class="primary" id="feedback" type="button">查看自查建议</button>
-<div id="feedback-result" class="result" role="status" aria-live="polite" hidden></div>
+<div aria-live="polite" class="result" hidden="" id="feedback-result" role="status"></div>
 <div class="bottom-actions"><button id="record-session" type="button">记到我的记录</button><span class="muted">仅本次保留，未发送医护。</span></div>
 </details>
-<section class="ai-panel" id="ai-panel" aria-labelledby="ai-title" hidden>
-<h2 id="ai-title">AI帮我找回看片段</h2>
+<section aria-labelledby="ai-title" class="ai-panel" hidden="" id="ai-panel">
+<p class="ai-entry-note">先选动作和视频，再分析。提示需医护复核。</p><h2 id="ai-title">AI 辅助回看</h2>
 <p>只看低头、转头、侧屈时的肩膀和身体变化。</p>
 <p class="ai-boundary">未经临床验证，不能判断动作合格或安全。</p>
-<label class="check"><input type="checkbox" id="ai-baseline">手机固定，开头2秒正面坐好</label>
-<label class="check"><input type="checkbox" id="ai-consent">我明白结果需要医护复核</label>
-<div class="tools"><button id="ai-prepare" type="button">准备AI</button><button class="primary" id="ai-start" type="button">开始分析</button><button id="ai-cancel" type="button" disabled>取消</button></div>
-<p id="ai-status" role="status" aria-live="polite">首次先点“准备AI”，再开始分析。</p>
-<div id="ai-result" aria-live="polite"></div><canvas id="ai-canvas" hidden aria-label="视频回看画面及人体关键点，仅供医护复核"></canvas>
-<details class="technical-details"><summary>AI原理与适用范围</summary><p>不评估头颈角度、口面部动作、吞咽、疼痛或切口。多人入镜、画面不清或参考姿势不稳时无法判断；未提示异常也不代表动作合格或安全。</p><p>临床依据：甲状腺术后康复研究支持开展经许可的训练；轻柔活动、疼痛时寻求专业建议等原则见公开患者教育。<strong>这些证据并未验证本算法或本系统的纠错疗效。</strong></p>
+<label class="check"><input id="ai-baseline" type="checkbox"/>手机固定，开头2秒正面坐好</label>
+<label class="check"><input id="ai-consent" type="checkbox"/>我明白结果需要医护复核</label>
+<div class="tools"><button id="ai-prepare" type="button">准备AI</button><button class="primary" id="ai-start" type="button">开始分析</button><button disabled="" id="ai-cancel" type="button">取消</button></div>
+<p aria-live="polite" id="ai-status" role="status">首次先点“准备AI”，再开始分析。</p>
+<div aria-live="polite" id="ai-result"></div><canvas aria-label="视频回看画面及人体关键点，仅供医护复核" hidden="" id="ai-canvas"></canvas>
+<details class="technical-details"><summary>AI原理与适用范围</summary><p>不评估头颈角度、其他动作、吞咽、疼痛或切口。多人入镜、画面不清或参考姿势不稳时无法判断；未提示异常也不代表动作合格或安全。</p><p>临床依据：甲状腺术后康复研究支持开展经许可的训练；轻柔活动、疼痛时寻求专业建议等原则见公开患者教育。<strong>这些证据并未验证本算法或本系统的纠错疗效。</strong></p>
 <p>技术：MediaPipe Pose Landmarker 1.2.0 在设备上识别人体关键点，再与本人前两秒的参考画面比较。只看相对投影变化，不测临床颈椎活动度、不认定“转体”或“抬肩”的原因。固定镜头仍不能完全排除视角和模型误差。</p>
 <p>工程触发参数：可见度 ≥0.70、有效帧比例 ≥70%、至少12个有效帧；参考帧至少4帧。投影肩线/躯干方向变化超过8°、双肩投影宽度变化超过25%或归一化位置变化超过0.18，且连续至少3个采样帧，才标出回看片段。参考姿势稳定性参数为5°。<strong>以上是探索性工程设置，并非文献或指南给出的临床阈值，不用于评价患者。</strong></p>
-<p>没有触发提示也不等于安全或动作合格。当前不识别颈部前屈角、转头角、呼吸、口腔及吞咽；转头时的肩部投影变化可能来自视角，需人工复核。首次需下载模型约6 MB及计算组件约14 MB（设备可能使用不同组件），之后可复用浏览器缓存。视频帧仅在本设备处理，不上传。视频模式逐帧分析保留每秒3帧采样和原有触发规则；未完成或超时不生成判断。</p>
-<ul><li><a href="https://pubmed.ncbi.nlm.nih.gov/41778443/" target="_blank" rel="noopener">Huang 等，2026：甲状腺术后联合康复随机试验</a>（临床背景，不是AI验证）。</li><li><a href="https://www.cuh.nhs.uk/patient-information/neck-and-shoulder-exercises/" target="_blank" rel="noopener">CUH 颈肩术后训练患者教育，2024批准版</a>（一般术后康复背景；不将其剂量直接套用至所有甲状腺患者）。</li><li><a href="https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker/web_js" target="_blank" rel="noopener">Google MediaPipe 官方技术说明</a>（技术能力，不构成医疗器械或临床效能认可）。</li></ul></details>
+<p>没有触发提示也不等于安全或动作合格。当前不识别颈部前屈角、转头角、呼吸、吞咽；转头时的肩部投影变化可能来自视角，需人工复核。首次需下载模型约6 MB及计算组件约14 MB（设备可能使用不同组件），之后可复用浏览器缓存。视频帧仅在本设备处理，不上传。视频模式逐帧分析保留每秒3帧采样和原有触发规则；未完成或超时不生成判断。</p>
+<ul><li><a href="https://pubmed.ncbi.nlm.nih.gov/41778443/" rel="noopener" target="_blank">Huang 等，2026：甲状腺术后联合康复随机试验</a>（临床背景，不是AI验证）。</li><li><a href="https://www.cuh.nhs.uk/patient-information/neck-and-shoulder-exercises/" rel="noopener" target="_blank">CUH 颈肩术后训练患者教育，2024批准版</a>（一般术后康复背景；不将其剂量直接套用至所有甲状腺患者）。</li><li><a href="https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker/web_js" rel="noopener" target="_blank">Google MediaPipe 官方技术说明</a>（技术能力，不构成医疗器械或临床效能认可）。</li></ul></details>
 </section>
 </div>
 </section>
-
-<section class="page" id="guide" hidden>
-<div class="intro"><h1>常见问题</h1><p>点一个问题，查看建议。</p></div>
+<section class="page" hidden="" id="guide">
+<div class="intro"><h1>常见问题</h1><p>点问题看建议，也可以点喇叭听。</p><button class="voice-button" id="listen-guide" type="button"><span data-icon="sound"></span>听常见提醒</button></div>
 <div class="topic-list" id="topics"></div>
 <details class="quiet-details"><summary>我还有别的问题</summary>
-<form id="ask-form"><label class="fieldlabel" for="question">说说您的问题</label><div class="ask-row"><input id="question" maxlength="300" placeholder="例如：练习时头晕怎么办？" required><button type="submit" class="primary">查看建议</button></div><p class="muted">请勿填姓名、电话。按预设内容回答，无人在线回复。</p></form>
+<form id="ask-form"><label class="fieldlabel" for="question">说说您的问题</label><div class="ask-row"><input id="question" maxlength="300" placeholder="例如：练习时头晕怎么办？" required=""/><button class="primary" type="submit">查看建议</button></div><p class="muted">请勿填姓名、电话。按预设内容回答，无人在线回复。</p></form>
 </details>
-<div id="answer" class="result" role="status" aria-live="polite" hidden></div>
+<div aria-live="polite" class="result" hidden="" id="answer" role="status"></div>
 </section>
-
-<section class="page" id="record" hidden>
+<section class="page" hidden="" id="record">
 <div class="intro"><h1>我的记录</h1><p>方便回顾，或给医护看。</p></div>
-<div id="records"></div><p id="ai-record-note" class="notice" hidden>本次AI回看结果也会写入下载文件。</p>
-<details class="quiet-details"><summary>补充一句话（可选）</summary><label class="fieldlabel" for="note">想记录什么？</label><textarea id="note" maxlength="300" rows="3" placeholder="例如：今天右侧牵拉感比昨天明显。"></textarea><p class="muted">只作记录，无人在线查看；不舒服请先联系医护。勿填姓名、电话。</p></details>
-<div id="record-tools" hidden><div class="tools"><button class="primary" id="export" type="button">下载记录</button><button id="clear-record" type="button">清空本次</button></div><p class="muted">只下载到本设备，不会自动发送。</p></div>
+<div id="records"></div><p class="notice" hidden="" id="ai-record-note">本次AI回看结果也会写入下载文件。</p>
+<details class="quiet-details"><summary>补充一句话（可选）</summary><label class="fieldlabel" for="note">想记录什么？</label><textarea id="note" maxlength="300" placeholder="例如：今天右侧牵拉感比昨天明显。" rows="3"></textarea><p class="muted">只作记录，无人在线查看；不舒服请先联系医护。勿填姓名、电话。</p></details>
+<div hidden="" id="record-tools"><div class="tools"><button class="primary" id="export" type="button">下载记录</button><button id="clear-record" type="button">清空本次</button></div><p class="muted">只下载到本设备，不会自动发送。</p></div>
 </section>
-<footer id="sources"><details><summary>使用说明与参考资料</summary><p>训练条目根据提供的护理方案整理，需经科室审核后用于临床。颈部及口面部参考剂量来自不同方案，不替代个体医嘱。原型无精确角度测量、吞咽评估、动作评分、自动进阶、药物指导或急救监测功能。</p><p>所选视频使用本地临时地址回放，不上传、不存入数据库；刷新或关闭后会话记录清空。服务器不接收表单与问题，不使用分析追踪脚本。请勿在公用设备留下下载的反馈单。</p><ul><li><a href="https://pubmed.ncbi.nlm.nih.gov/41778443/" target="_blank" rel="noopener">[1] Huang 等，2026，联合颈部及口面部康复试验</a>：不等同于本原型疗效验证。</li><li>[2] 甲状腺癌加速康复外科围术期护理专家共识，2022，DOI：10.12102/j.issn.1009-6493.2022.01.001。</li><li>[4] Miyauchi 等，2021，术后颈部伸展。DOI：10.1089/ve.2021.0003。</li><li>[5] 甲状腺手术声音改变管理指南，2022。DOI：10.21053/ceo.2021.00633。</li><li><a href="https://www.thyroid.org/post-operative-expectations/" target="_blank" rel="noopener">美国甲状腺协会：术后注意事项与紧急症状</a></li><li><a href="https://www.mskcc.org/cancer-care/patient-education/about-your-thyroid-surgery" target="_blank" rel="noopener">MSK：甲状腺手术患者教育</a></li></ul><p>版本：0.2 · 医护评审用途 · 2026-11-01。已加入本地人体关键点辅助筛查；未接入微信小程序、院内账号、护士审核后台或经过临床验证的动作识别。</p></details></footer>
+<footer id="sources"><details><summary>使用说明与参考资料</summary><p>训练条目根据提供的护理方案整理，需经科室审核后用于临床。颈肩训练参考量来自护理方案，不替代个体医嘱。原型无精确角度测量、吞咽评估、动作评分、自动进阶、药物指导或急救监测功能。</p><p>所选视频使用本地临时地址回放，不上传、不存入数据库；刷新或关闭后会话记录清空。服务器不接收表单与问题，不使用分析追踪脚本。请勿在公用设备留下下载的反馈单。</p><ul><li>[2] 甲状腺癌加速康复外科围术期护理专家共识，2022，DOI：10.12102/j.issn.1009-6493.2022.01.001。</li><li>[4] Miyauchi 等，2021，术后颈部伸展。DOI：10.1089/ve.2021.0003。</li><li>[5] 甲状腺手术声音改变管理指南，2022。DOI：10.21053/ceo.2021.00633。</li><li><a href="https://www.thyroid.org/post-operative-expectations/" rel="noopener" target="_blank">美国甲状腺协会：术后注意事项与紧急症状</a></li><li><a href="https://www.mskcc.org/cancer-care/patient-education/about-your-thyroid-surgery" rel="noopener" target="_blank">MSK：甲状腺手术患者教育</a></li></ul><p>版本：0.2 · 医护评审用途 · 2026-11-01。已加入本地人体关键点辅助筛查；未接入微信小程序、院内账号、护士审核后台或经过临床验证的动作识别。</p></details></footer>
 </main>
 </div>
-<dialog id="urgent-dialog" aria-labelledby="urgent-title">
+<dialog aria-labelledby="urgent-title" id="urgent-dialog">
 <h2 id="urgent-title">先停下来</h2>
 <div class="urgent-block"><h3>这些情况，马上求助</h3><ul><li>喘不过气，或吸气有尖锐声</li><li>脖子突然肿起、越来越紧</li><li>明显出血</li></ul><p><strong>马上叫身边医护。院外立即拨打当地急救电话（中国大陆120）。</strong></p><p>不要等网页回复。</p></div>
 <h3>这些变化，尽快联系医护</h3><p>喝水呛、声音带水声、口水难咽：先停饮水和相关训练，不反复试水。</p><p>新发或加重的声哑、发麻、抽筋、疼痛、头晕等，也要先停练并联系医护。</p>
-<button id="close-urgent" class="primary" type="button">我知道了</button>
+<button class="primary" id="close-urgent" type="button">我知道了</button>
 </dialog>
-<script type="module" src="app.js?v=20261103-easy"></script>
-</body></html>
+<script src="app.js?v=20261104-visual" type="module"></script><script src="visual-ui.js?v=20261104-visual" type="module"></script>
+<div aria-live="polite" class="voice-status" hidden="" id="voice-status" role="status"></div></body></html>

@@ -1,6 +1,6 @@
-import{analyze,cancelAnalysis,aiSummary,prepareModel}from'./vision.js?v=20261103-easy';
-import{assess,exercises,answerQuestion}from'./rules.js?v=20261103-easy';
-import{screenSteps,blockedAnswer,canAdvance}from'./screen-flow.js?v=20261103-easy';
+import{analyze,cancelAnalysis,aiSummary,prepareModel}from'./vision.js?v=20261104-visual';
+import{assess,exercises,answerQuestion}from'./rules.js?v=20261104-visual';
+import{screenSteps,blockedAnswer,canAdvance}from'./screen-flow.js?v=20261104-visual';
 const $=id=>document.getElementById(id);
 let ready=false,url=null,feedback=null,records=[],screenState='未完成',screenIndex=0;
 const screeningForm=$('screen-form'),screenFields=[...screeningForm.querySelectorAll('.screen-step')];
@@ -11,6 +11,7 @@ function tab(id){
  document.querySelectorAll('.page').forEach(p=>p.hidden=p.id!==id);
  document.querySelectorAll('.nav').forEach(n=>{n.classList.toggle('active',n.dataset.tab===id);if(n.dataset.tab===id)n.setAttribute('aria-current','page');else n.removeAttribute('aria-current');});
  if(id==='record')renderRecords();
+ window.dispatchEvent(new CustomEvent('rehab-tab',{detail:id}));
  window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
 }
 document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
@@ -20,7 +21,7 @@ function result(id,title,text,error=false){
  h.textContent=title;p.textContent=text;el.replaceChildren(h,p);el.hidden=false;el.classList.toggle('error',error);
 }
 function refreshPractice(){
- const supported=[4,5,6].includes(+$('exercise').value);
+ const supported=[1,2,3].includes(+$('exercise').value);
  $('workspace').hidden=!ready;$('locked').hidden=ready;
  $('ai-capture').hidden=!ready||!supported;
  $('ai-panel').hidden=!ready||!supported||!url;
@@ -106,18 +107,21 @@ function loadExercise(){
  $('discomfort').checked=false;$('ai-baseline').checked=false;$('ai-consent').checked=false;
  $('selfcheck-details').open=false;$('feedback-result').hidden=true;$('record-session').disabled=true;
  $('ai-status').textContent='首次先点“准备AI”，再开始分析。';refreshPractice();
+ window.dispatchEvent(new CustomEvent('rehab-exercise',{detail:+$('exercise').value}));
 }
 $('exercise').onchange=loadExercise;loadExercise();
 function clearVideo(){
  cancelAnalysis();if(url)URL.revokeObjectURL(url);url=null;
  $('video').pause();$('video').removeAttribute('src');$('video').load();$('video').hidden=true;
  $('video-file').value='';$('video-status').textContent='还没有选择视频';$('ai-baseline').checked=false;refreshPractice();
+ window.dispatchEvent(new CustomEvent('rehab-exercise',{detail:+$('exercise').value}));
 }
 $('video-file').onchange=()=>{
  cancelAnalysis();$('ai-baseline').checked=false;const f=$('video-file').files[0];if(!f)return;
  if(!f.type.startsWith('video/')||f.size>200*1024*1024){clearVideo();$('video-status').textContent='请选择不超过200 MB的视频。';return;}
  if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);$('video').src=url;$('video').hidden=false;
  $('video-status').textContent='视频已选好。可先播放、慢放，再自查或分析。';refreshPractice();
+ window.dispatchEvent(new CustomEvent('rehab-exercise',{detail:+$('exercise').value}));
 };
 $('video').onerror=()=>$('video-status').textContent='这个视频无法播放，请换成MP4格式。';
 $('remove-video').onclick=clearVideo;$('slow').onclick=()=>$('video').playbackRate=.5;$('normal').onclick=()=>$('video').playbackRate=1;
@@ -161,7 +165,7 @@ function renderRecords(){
  recordControls();
 }
 $('note').addEventListener('input',recordControls);renderRecords();
-const topics=['一天练几次？','转头带着肩膀动？','视频怎么拍？','能自己练吞咽吗？'];
+const topics=['一天练几次？','转头带着肩膀动？','视频怎么拍？','有点疼，还要练吗？'];
 function referenceDetail(container,a){
  if(a.detail){const d=document.createElement('details'),s=document.createElement('summary'),p=document.createElement('p');s.textContent='查看参考说明';p.textContent=a.detail;d.append(s,p);container.append(d);}
 }
